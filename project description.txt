@@ -1,0 +1,21 @@
+[REQUIRED] Names and Projects roles: Omar Mani: Backend Development
+ 				     Abdelkader Bouzouita: Frontend Development
+                                     Khawla Louhichi: Project Management and Testing
+[REQUIRED] Project Title: HendyMen
+[REQUIRED] Project Stack: Python
+[REQUIRED] GitHub Repo Link: https://github.com/Kaderbz/group_project.git
+
+
+[REQUIRED] Project Description: 
+ A handyman website project where users can find and hire local handyman services for various home repair and maintenance needs. The goal is to connect users with reliable and skilled handymen in their area to help them with their household tasks.
+
+Feature list: - Language PYTHON
+              - Project is on GitHub
+              - .gitignore file in root folder
+              - All of CRUD* on a non-User table
+              - CSS implemented, and possibly other static content
+              - Data is validated upon create and edit, errors show
+              - Login and Registration with validations	
+              - Protected routes (Must be logged in to view)
+              - Application is responsive (maybe)
+              - Application uses a CSS framework such as Bootstrap

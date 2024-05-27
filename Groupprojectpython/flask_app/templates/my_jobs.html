@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>My Jobs</title>
+</head>
+<body>
+    <div class="wrapper bg-dark">
+        <h1 class="display-4 fw-bold">HandyMen</h1>
+        <div class="mt-4">
+            <a href="/user_dashboard" class="btn btn-outline-warning me-2">Dashboard</a>
+            <a href="/new_repair" class="btn btn-outline-warning me-2">Add A Job</a>
+            <a href="/logout" class="btn btn-outline-warning">Logout</a>
+        </div>
+    </div>
+
+    <div class="wrapper mt-5 bg-dark">
+        <div class="row mb-4">
+            <h2 class="col-12 text-center">Hello, {{user.first_name}} {{user.last_name}}!</h2>
+        </div>
+
+        <div class="row mb-4">
+            <h4 class="text-center">All Jobs</h4>
+        </div>
+        
+        <div class="row">
+            <table class="table table-secondary table-striped table-hover table-bordered shadow-sm text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Job Title</th>
+                        <th>Posted by</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for repair in repairs %}
+                        {% if repair.user_id_posted != session['user_id'] %}
+                        <tr>
+                            <td>{{ repair.name }}</td>
+                            <td>{{ repair.posted.first_name }} {{ repair.posted.last_name }}</td>
+                            <td>{{ repair.location }}</td>
+                            <td>
+                                <a href="/detail_page/{{ repair.id }}" class="btn btn-info btn-sm me-1">View</a>
+                                <a href="/drop_job/{{ repair.id }}" class="btn btn-danger btn-sm me-1">Drop Job</a>
+                                <a href="/delete_repair/{{ repair.id }}" class="btn btn-success btn-sm">Finished</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="wrapper bg-dark">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>About Us</h3>
+                <p>Your go-to for home repairs. Skilled handymen for all your needs. From fixing leaks to painting, we've got you covered. Professional, reliable, and customer-focused. Trust us for top-notch service.</p>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Contact Us</h3>
+                <p>Av.Farhat Hached Sahloul 1, Sousse, Tunisia<br>handymen@gmail.com<br>+216 12 345 678</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

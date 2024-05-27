@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Edit Job Posting</title>
+</head>
+<body>
+    <div class="wrapper bg-dark">
+        <h1 class="display-4 fw-bold">HandyMen</h1>
+        <div class="mt-4">
+            <a href="/user_dashboard" class="btn btn-outline-warning me-2">Dashboard</a>
+            <a href="/myjobs" class="btn btn-outline-warning me-2">My Jobs</a>
+            <a href="/logout" class="btn btn-outline-warning">Logout</a>
+        </div>
+    </div>
+    
+    <div class="wrapper bg-dark">
+        <div class="container-fluid text-center p-5">
+            
+            <h1 class="col-12 text-center">Edit Job Posting</h1>
+            
+            <div>
+                <form action="/submit_update" method="post" class="card p-4 mx-auto" style="max-width: 800px; background-color: #303437;">
+                    <input type="hidden" name="id" value="{{ repair.id }}">
+                    
+                    <div class="mb-3">
+                        <label for="job_title" class="form-label fs-4">Job Title:</label>
+                        <input type="text" name="name" id="job_title" class="form-control" value="{{ repair.name }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label fs-4">Description:</label>
+                        <textarea name="description" id="description" class="form-control" rows="6" required>{{ repair.description }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-label fs-4">Location:</label>
+                        <input type="text" name="location" id="location" class="form-control" value="{{ repair.location }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label fs-4">Phone number:</label>
+                        <input type="text" name="phone" id="phone" class="form-control" value="{{ repair.phone }}" required>
+                    </div>
+
+                    <input type="hidden" value="{{ repair.id }}" name="repair_id">
+                    <div class="text-center">
+                        <input type="submit" value="Update" id="submit_button" class="btn btn-success btn-lg" style="width: 100px">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper bg-dark">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>About Us</h3>
+                <p>Your go-to for home repairs. Skilled handymen for all your needs. From fixing leaks to painting, we've got you covered. Professional, reliable, and customer-focused. Trust us for top-notch service.</p>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Contact Us</h3>
+                <p>Av.Farhat Hached Sahloul 1, Sousse, Tunisia<br>handymen@gmail.com<br>+216 12 345 678</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
